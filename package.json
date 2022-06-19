@@ -1,0 +1,22 @@
+{
+  "name": "@wix/zoe-node-something-to-prod-parent",
+  "version": "1.0.0",
+  "private": true,
+  "author": {
+    "name": "zoe cohen",
+    "email": "zoec@wix.com"
+  },
+  "scripts": {
+    "build": "lerna run build",
+    "postinstall": "lerna bootstrap",
+    "test": "lerna run test"
+  },
+  "devDependencies": {
+    "lerna": "~3.22.1"
+  },
+  "wix": {
+    "loki": {
+      "enable": true
+    }
+  }
+}

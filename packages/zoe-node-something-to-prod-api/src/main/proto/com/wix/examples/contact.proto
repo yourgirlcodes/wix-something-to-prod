@@ -1,0 +1,79 @@
+syntax = "proto3";
+
+package com.wix.examples;
+
+import "wix/api/entity.proto";
+import "wix/api/permissions.proto";
+import "wix/api/validations.proto";
+import "wix/api/annotations.proto";
+import "google/api/annotations.proto";
+import "google/protobuf/field_mask.proto";
+
+message Contact {
+  option (.wix.api.entity) = {
+    fqdn: "wix.examples.v1.contact"
+    segment: PUBLIC
+  };
+
+  string name = 2 [(.wix.api.maxLength) = 50];
+  string description = 3 [(.wix.api.maxLength) = 50];
+}
+
+message GetContactRequest {
+  string id = 1;
+}
+
+message GetContactResponse {
+  Contact contact = 1;
+  string id = 2;
+}
+
+message CreateContactRequest {
+  Contact contact = 1;
+}
+
+message CreateContactResponse {
+  Contact contact = 1;
+  string id = 2;
+}
+
+message UpdateContactRequest {
+  Contact contact = 1;
+  google.protobuf.FieldMask field_mask = 2;
+  string id = 3;
+}
+
+message UpdateContactResponse {
+  Contact contact = 1;
+  string id = 2;
+}
+
+message DeleteContactRequest {
+  string id = 1;
+}
+
+message DeletedContactResponse {
+}
+
+service ContactService {
+  option (.wix.api.service_entity).message = "com.wix.examples.Contact";
+
+  rpc CreateContact (CreateContactRequest) returns (CreateContactResponse) {
+    option (google.api.http).post = "/v1/contact";
+  }
+
+  rpc GetContact (GetContactRequest) returns (GetContactResponse) {
+    option (google.api.http).get = "/v1/contact/{id}";
+    option (.wix.api.required) = "GetContactRequest.id";
+  }
+
+  rpc UpdateContact (UpdateContactRequest) returns (UpdateContactResponse) {
+    option (google.api.http).patch = "/v1/contact/{id}";
+    option (.wix.api.required) = "UpdateContactRequest.id";
+  }
+
+  rpc DeleteContact (DeleteContactRequest) returns (DeletedContactResponse) {
+    option (google.api.http).delete = "/v1/contact/{id}";
+    option (.wix.api.required) = "DeleteContactRequest.id";
+  }
+}
