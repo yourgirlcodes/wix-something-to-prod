@@ -2,9 +2,9 @@ import {responses} from '../../generated/server/proto-generated';
 import {AspectStore} from '@wix/wix-aspects';
 import {
   CreateContactRequest,
-  CreateContactResponse, DeleteContactRequest, DeletedContactResponse,
+  DeleteContactRequest,
   GetContactRequest,
-  GetContactResponse, UpdateContactRequest, UpdateContactResponse
+  UpdateContactRequest
 } from '../../api/proto/proto-types';
 
 export interface Contact {

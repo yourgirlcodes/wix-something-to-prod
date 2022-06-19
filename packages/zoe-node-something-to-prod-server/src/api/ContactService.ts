@@ -15,8 +15,6 @@ import {
 } from '../api/proto/proto-types';
 import {convertToProto} from './conversionFunction';
 
-const {applyFieldMask} = require('protobuf-fieldmask');
-
 class RpcContactService extends ContactService {
   constructor(
         private readonly contactService: ContactServiceImpl

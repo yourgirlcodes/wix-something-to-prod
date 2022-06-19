@@ -1,15 +1,10 @@
 import { AspectStore } from '@wix/wix-aspects';
-import { responses } from '../../generated/server/proto-generated';
 
 import {
   CreateContactRequest,
-  CreateContactResponse,
   DeleteContactRequest,
-  DeletedContactResponse,
   GetContactRequest,
-  GetContactResponse,
   UpdateContactRequest,
-  UpdateContactResponse,
 } from '../../api/proto/proto-types';
 import { v4 as uuid } from 'uuid';
 import {Contact, ContactService} from './ContactService';
