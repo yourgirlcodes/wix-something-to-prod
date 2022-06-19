@@ -1,0 +1,7 @@
+apiDoc:
+  title: contacts API
+  description: API for managing contacts
+  host: contacts.wix.com
+  status: production
+  gitUrl: https://github.com/wix-private/contacts/src/main/proto
+  category: contacts

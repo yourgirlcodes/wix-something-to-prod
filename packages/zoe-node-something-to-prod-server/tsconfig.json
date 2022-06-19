@@ -1,0 +1,7 @@
+{
+  "extends": "@wix/wnp-shared-config/main-tsconfig.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "allowJs": true
+  }
+}

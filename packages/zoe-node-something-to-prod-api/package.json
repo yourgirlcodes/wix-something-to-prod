@@ -1,0 +1,36 @@
+{
+  "name": "@wix/zoe-node-something-to-prod-api",
+  "version": "1.0.0",
+  "description": "protobuf API definitions for contact service",
+  "license": "UNLICENSED",
+  "author": {
+    "name": "zoe cohen",
+    "email": "zoec@wix.com"
+  },
+  "scripts": {
+    "build": ":",
+    "clean": "rm -rf target",
+    "test": "wix-proto-module-validator"
+  },
+  "devDependencies": {
+    "@wix/wix-proto-module-validator": "~1.0.0"
+  },
+  "publishConfig": {
+    "registry": "http://npm.dev.wixpress.com/",
+    "versionBumpStrategy": "patch"
+  },
+  "wix": {
+    "artifact": {
+      "groupId": "com.wixpress.examples",
+      "artifactId": "zoe-node-something-to-prod-api",
+      "targets": {
+        "static": false,
+        "docker": false
+      }
+    }
+  },
+  "wnp_type": "proto",
+  "dependencies": {
+    "@wix/wix-bootstrap-mysql": "^1.0.1338"
+  }
+}
